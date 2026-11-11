@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f59e0b; /* Fond jaune comme votre design original */
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-card {
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    min-height: 650px;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+/* --- Style Sidebar Gauche --- */
+.login-sidebar {
+    flex: 1.2;
+    background: url('https://i.pinimg.com/736x/61/63/ca/6163ca03bbea09514b057e05825d546c.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+
+.sidebar-overlay {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
+    height: 100%;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+}
+
+.logo-img {
+    width: 140px; /* Ajustez selon la taille de votre logo blanc */
+    object-fit: contain;
+}
+
+.sidebar-content h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.sidebar-content p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 400px;
+}
+
+.sidebar-footer {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* --- Style Formulaire Droite --- */
+.login-main {
+    flex: 1;
+    padding: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-wrapper { width: 100%; max-width: 360px; }
+
+.form-header h1 { font-size: 2rem; color: #1e293b; margin-bottom: 8px; }
+.form-header p { color: #64748b; margin-bottom: 40px; }
+
+.input-field { margin-bottom: 25px; }
+.input-field label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 0.9rem; color: #334155; }
+
+.input-wrapper { position: relative; display: flex; align-items: center; }
+.input-icon { position: absolute; left: 15px; color: #94a3b8; }
+
+.input-wrapper input {
+    width: 100%;
+    padding: 14px 14px 14px 45px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.input-wrapper input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 16px;
+    background: #1e293b;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s;
+}
+
+.btn-submit:hover { background: #000; transform: translateY(-2px); }
+
+.spinner { animation: spin 1s linear infinite; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.form-footer { text-align: center; margin-top: 40px; color: #64748b; font-size: 0.95rem; }
+.form-footer a { color: #2563eb; text-decoration: none; font-weight: 600; }
+
+/* Responsive */
+@media (max-width: 900px) {
+    .login-sidebar { display: none; }
+    .login-card { max-width: 500px; }
+}
+
+/* --- Section QR Code dans la Sidebar --- */
+.qr-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.1); /* Fond léger pour détacher du background */
+    backdrop-filter: blur(5px); /* Effet de flou moderne */
+    padding: 15px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: auto; /* Pousse la section vers le bas */
+    margin-bottom: 30px;
+    max-width: fit-content;
+}
+
+.qr-container {
+    background: white;
+    padding: 8px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.qr-code {
+    width: 70px;  /* Taille du QR Code */
+    height: 70px;
+    object-fit: contain;
+}
+
+.qr-text {
+    color: white;
+}
+
+.qr-text span {
+    display: block;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-color); /* Utilise votre jaune pour le titre */
+}
+
+.qr-text p {
+    margin: 0;
+    font-size: 0.8rem;
+    opacity: 0.9;
+    line-height: 1.2;
+    max-width: 140px;
+}
+
+/* Ajustement pour que tout rentre bien */
+.sidebar-overlay {
+    justify-content: flex-start; /* Changé pour gérer l'espacement manuellement */
+}
+
+.sidebar-content {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}

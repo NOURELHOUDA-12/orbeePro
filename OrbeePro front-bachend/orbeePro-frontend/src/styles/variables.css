@@ -1,0 +1,32 @@
+
+:root {
+    /* Couleurs Primaires */
+    --primary-color: #f59e0b;       
+    --primary-dark: #d97706;
+    --primary-light: #fef3c7;
+
+    /* Couleurs de Contraste (UI) */
+    --dark-blue: #1e293b;          /* Pour les boutons, titres */
+    --navy-blue: #0f172a;          /* Pour la sidebar, fond sombre */
+    --accent-blue: #2563eb;        /* Pour les liens, focus */
+
+    /* Couleurs de Statut */
+    --success: #10b981;
+    --error: #ef4444;
+    --warning: #f59e0b;
+    --info: #3b82f6;
+
+    /* Couleurs Neutres (Fond, Bordures, Texte) */
+    --bg-page: #f8fafc;
+    --bg-card: #ffffff;
+    --border-color: #e2e8f0;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --text-on-dark: #ffffff;
+
+    /* Ombres et Arrondis (Optionnel mais recommandé pour la cohérence) */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --radius-md: 12px;
+    --radius-lg: 20px;
+}

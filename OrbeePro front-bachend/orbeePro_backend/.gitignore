@@ -1,0 +1,15 @@
+# Dépendances (trop lourd pour être envoyé, on fait 'npm install' sur le serveur)
+node_modules/
+
+# Sécurité (IMPORTANT : vos accès MySQL et clés secrètes)
+.env
+
+# Build (fichiers générés automatiquement)
+dist/
+build/
+
+# Logs et divers
+npm-debug.log*
+.DS_Store
+
+

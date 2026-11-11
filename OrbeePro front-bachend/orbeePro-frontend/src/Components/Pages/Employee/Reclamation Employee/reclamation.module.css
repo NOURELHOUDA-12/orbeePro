@@ -1,0 +1,1942 @@
+/* ReclamationEmployee.module.css - Version Premium Nettoyée */
+
+/* --- AJOUT : Import de la police et reset global --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Variables CSS cohérentes */
+:root {
+  --primary-gradient:linear-gradient(135deg, #FBBF24 0%, #cb9b23 100%);
+  --primary-color: #667eea;
+  --primary-dark: #764ba2;
+  --success-color: #10b981;
+  --success-dark: #059669;
+  --warning-color: #f59e0b;
+  --warning-dark: #d97706;
+  --danger-color: #ef4444;
+  --danger-dark: #dc2626;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.15);
+  --border-radius: 12px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 20px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- 1. Conteneur Principal & En-tête --- */
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #FBBF24 0%, #cb9b23 100%);
+
+  padding: 2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.managerHeader {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.managerTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--gray-900);
+  margin: 0;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, var(--gray-900), var(--primary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.managerSubtitle {
+  color: var(--gray-600);
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* --- 2. Panneau de Stats --- */
+.gamificationPanel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.gamificationCard {
+  background: rgba(255, 255, 255, 0.98);
+  padding: 1.25rem;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  text-align: left;
+  cursor: default;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.gamificationCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--primary-gradient);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.gamificationCard:hover::before {
+  opacity: 1;
+}
+
+.gamificationCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+.gamificationCardIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: var(--gray-100);
+  transition: var(--transition);
+}
+
+.gamificationCard:hover .gamificationCardIcon {
+  transform: scale(1.1);
+}
+
+.gamificationCardValue {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  line-height: 1.2;
+}
+
+.gamificationCardLabel {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* --- 3. Barre d'outils --- */
+.searchFiltersToolbar {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  /* Ajouté pour un meilleur espacement */
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.searchContainer {
+  flex: 1;
+  min-width: 250px;
+  /* Réduit pour plus de flexibilité */
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-400);
+  transition: var(--transition);
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.875rem 1rem 0.875rem 2.75rem;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--border-radius);
+  font-size: 0.9375rem;
+  transition: var(--transition);
+  background: white;
+  font-weight: 500;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.searchInput:focus+.searchIcon {
+  color: var(--primary-color);
+}
+
+.viewToggle {
+  display: flex;
+  background: var(--gray-100);
+  padding: 0.375rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--gray-200);
+  flex-shrink: 0;
+  /* Ajouté */
+}
+
+.viewButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--gray-500);
+}
+
+.viewButtonActive {
+  background: white;
+  color: var(--primary-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 0.9375rem;
+  background: var(--primary-gradient);
+  color: white;
+  box-shadow: var(--shadow-md);
+  margin-left: auto;
+  /* Gardé pour pousser à droite si l'espace le permet */
+  flex-shrink: 0;
+  /* Ajouté */
+}
+
+.primaryButton:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  filter: brightness(1.1);
+}
+
+/* --- 4. En-tête de liste --- */
+.listHeaderTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.98);
+  padding: 1rem 1.5rem;
+  border-radius: var(--border-radius-lg);
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.listHeaderTitle h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+/* --- 5. Liste des réclamations --- */
+.reclamationList {
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: var(--border-radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.reclamationItemWrapper {
+  border-bottom: 1px solid var(--gray-100);
+  animation: fadeIn 0.6s ease-out;
+}
+
+.reclamationItemWrapper:last-child {
+  border-bottom: none;
+}
+
+.reclamationItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease, border-radius 0.1s linear;
+}
+
+.reclamationItem:hover {
+  background: var(--gray-50);
+}
+
+.reclamationItemExpanded {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.reclamationContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.reclamationTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.reclamationProblem {
+  font-weight: 600;
+  color: var(--gray-900);
+  font-size: 0.9375rem;
+  margin: 0;
+}
+
+.reclamationType {
+  background: var(--gray-100);
+  color: var(--gray-600);
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.reclamationMeta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--gray-500);
+  font-size: 0.8125rem;
+  flex-wrap: wrap;
+}
+
+.reclamationDetail {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.reclamationStatusSection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.reclamationStatus {
+  padding: 0.375rem 0.875rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  flex-shrink: 0;
+}
+
+.statusPending {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--warning-dark);
+}
+
+.statusInProgress {
+  background: rgba(59, 130, 246, 0.1);
+  color: #2563eb;
+}
+
+.statusCompleted {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success-dark);
+}
+
+.statusPaused {
+  background: rgba(168, 85, 247, 0.1);
+  color: #7c3aed;
+}
+
+.expandBtn {
+  flex-shrink: 0;
+  padding: 0.5rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--gray-400);
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.expandBtn:hover {
+  background: var(--gray-100);
+  color: var(--primary-color);
+  transform: scale(1.1);
+}
+
+.expandBtnRotated {
+  transform: rotate(180deg);
+}
+
+/* --- 6. Contenu étendu (corrigé avec layout 2 colonnes) --- */
+.reclamationExpanded {
+  padding: 1.5rem 2rem;
+  background: var(--gray-50);
+  animation: slideDown 0.4s ease-out;
+  overflow: hidden;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+
+  to {
+    opacity: 1;
+    max-height: 1000px;
+  }
+}
+
+@keyframes slideUpContent {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.expandedMainContent {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  animation: slideUpContent 0.5s 0.1s ease-out backwards;
+}
+
+.expandedColumnLeft {
+  flex: 2;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.expandedColumnRight {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.reclamationGallery {}
+
+.galleryTitle {
+  font-weight: 600;
+  color: var(--gray-900);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.imagesCompact {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.imageCompact {
+  position: relative;
+  width: 89px;
+  height: 80px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid var(--gray-300);
+  transition: var(--transition);
+  flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.imageCompact:hover {
+  border-color: var(--primary-color);
+  transform: scale(1.1);
+  box-shadow: var(--shadow-md);
+  filter: brightness(0.9);
+}
+
+.imageCompact img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imageBadge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: var(--primary-gradient);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 800;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.reclamationDetails {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.detailGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.detailTitle {
+  font-weight: 600;
+  color: var(--gray-900);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: white;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--gray-200);
+  transition: var(--transition);
+}
+
+.detailItem:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-color);
+}
+
+
+.detailIcon {
+  color: var(--gray-500);
+  flex-shrink: 0;
+}
+
+.detailContent {
+  flex: 1;
+}
+
+.detailLabel {
+  font-weight: 500;
+  color: var(--gray-600);
+  font-size: 0.9rem;
+}
+
+.detailValue {
+  color: var(--gray-900);
+  font-weight: 600;
+}
+
+.pauseHistory {
+  background: #fffbeb;
+  border: 1px solid #fcd34d;
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+}
+
+.currentPause {
+  background: #fee2e2;
+  border: 1px solid #f87171;
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+}
+
+.currentPauseTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--danger-dark);
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.pauseHistoryTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #92400e;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.pauseHistoryItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  border: 1px solid #fde68a;
+}
+
+.currentPause .pauseHistoryItem {
+  border-color: #fbcaca;
+}
+
+.pauseHistoryItem:last-child {
+  margin-bottom: 0;
+}
+
+.pauseReason {
+  font-weight: 500;
+  color: var(--gray-800);
+  flex: 1;
+}
+
+.pauseTime {
+  color: var(--gray-600);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.reclamationActions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--gray-200);
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 0.9rem;
+}
+
+.actionButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.actionButtonPrimary {
+  background: var(--primary-gradient);
+  color: white;
+}
+
+.actionButtonSuccess {
+  background: linear-gradient(135deg, var(--success-color), var(--success-dark));
+  color: white;
+}
+
+.actionButtonWarning {
+  background: linear-gradient(135deg, var(--warning-color), var(--warning-dark));
+  color: white;
+}
+
+.actionButtonWarning:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  filter: brightness(1.1);
+}
+
+.actionButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  filter: brightness(1.1);
+}
+
+/* --- 7. États spéciaux --- */
+.reclamationEmpty {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: var(--gray-500);
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.emptyTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 0.5rem;
+}
+
+.emptyDescription {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.urgentBanner {
+  background: #fee2e2;
+  color: var(--danger-dark);
+  padding: 1rem 1.5rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 500;
+  border: 1px solid #f87171;
+  border-left: 4px solid var(--danger-color);
+}
+
+.successBanner {
+  background: #f0fdf4;
+  color: var(--success-dark);
+  padding: 1rem 1.5rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 500;
+  border: 1px solid #bbf7d0;
+  border-left: 4px solid var(--success-color);
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* --- 8. Responsive --- */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .managerHeader {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.25rem;
+  }
+
+  .gamificationPanel {
+    grid-template-columns: 1fr;
+  }
+
+  .searchFiltersToolbar {
+    flex-direction: column;
+    padding: 1.25rem;
+  }
+
+  .searchContainer {
+    min-width: 100%;
+  }
+
+  .viewToggle {
+    width: 100%;
+  }
+
+  .viewButton {
+    flex: 1;
+    text-align: center;
+  }
+
+  .primaryButton {
+    margin-left: 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .reclamationItem {
+    flex-wrap: wrap;
+    padding: 1rem;
+  }
+
+  .reclamationStatusSection {
+    width: 100%;
+    justify-content: space-between;
+    order: -1;
+  }
+
+  .reclamationMeta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .reclamationExpanded {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .reclamationActions {
+    flex-direction: column;
+  }
+
+  .actionButton {
+    justify-content: center;
+  }
+
+  .pauseHistoryItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .imagesCompact {
+    justify-content: center;
+  }
+
+  /* Responsive pour les nouvelles vues */
+  .viewModeToggle {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .expandedMainContent {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* ==================================================================== */
+/* --- 9. NOUVEAU : Styles pour le sélecteur de vue --- */
+/* ==================================================================== */
+.viewModeToggle {
+  display: flex;
+  align-items: center;
+  background: var(--gray-100);
+  border-radius: var(--border-radius);
+  padding: 4px;
+  border: 1px solid var(--gray-200);
+  flex-shrink: 0;
+}
+
+.viewModeButton {
+  background: transparent;
+  border: none;
+  padding: 6px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--gray-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.viewModeButton:hover {
+  color: var(--gray-900);
+  background-color: var(--gray-200);
+}
+
+.viewModeButtonActive {
+  background: white;
+  color: var(--primary-color);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ==================================================================== */
+/* --- 10. NOUVEAU : Styles pour la Vue Grille --- */
+/* ==================================================================== */
+.reclamationGridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding-top: 1rem;
+}
+
+.reclamationGridCard {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.reclamationGridCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.gridCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.gridCardTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+.reclamationStatus.statusSmall {
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  max-width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gridCardMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-top: 1px dashed var(--gray-300);
+  padding-top: 1rem;
+}
+
+.gridCardDetail {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--gray-600);
+}
+
+.gridCardDetail svg {
+  flex-shrink: 0;
+  color: var(--primary-color);
+}
+
+.gridCardPriority {
+  font-weight: 600;
+  color: var(--gray-900);
+}
+
+.gridCardPriority.tres_urgent {
+  color: var(--danger-color);
+}
+
+.gridCardPriority.urgent {
+  color: var(--warning-color);
+}
+
+.gridCardPriority.normal {
+  color: var(--primary-color);
+}
+
+
+/* ==================================================================== */
+/* --- 11. NOUVEAU : Styles pour la Vue Calendrier (Version finale) --- */
+/* ==================================================================== */
+
+.calendarViewContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  /* padding-top: 1rem; (Pas nécessaire, le gap gère) */
+}
+
+.calendarWrapper {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--border-radius-xl);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Conteneur principal de la liste pour gérer l'état vide */
+.reclamationListContainer {
+  width: 100%;
+}
+
+/* Personnalisation de React-Calendar */
+.react-calendar {
+  width: 100% !important;
+  border: none;
+  font-family: 'Inter', sans-serif;
+}
+
+.react-calendar__navigation button {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--gray-800);
+}
+
+.react-calendar__navigation button:hover,
+.react-calendar__navigation button:focus {
+  background-color: var(--gray-100);
+}
+
+.react-calendar__navigation button:disabled {
+  background-color: transparent;
+  color: var(--gray-300);
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  text-align: center;
+  padding: 0.5em;
+  font-weight: 600;
+  color: var(--gray-500);
+  text-decoration: none;
+}
+
+.react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none;
+}
+
+.react-calendar__tile {
+  padding: 0.5rem;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  position: relative;
+  border: none;
+}
+
+.react-calendar__tile abbr {
+  padding: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background-color: var(--gray-100);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Jour actuel */
+.react-calendar__tile--now {
+  background-color: var(--gray-50);
+  font-weight: 600;
+}
+
+.react-calendar__tile--now abbr {
+  color: var(--primary-color);
+  font-weight: 800;
+}
+
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+  background-color: var(--gray-100);
+}
+
+/* Jour sélectionné */
+.react-calendar__tile--active {
+  background: var(--primary-gradient) !important;
+  color: white !important;
+  font-weight: 600;
+  box-shadow: var(--shadow-md);
+}
+
+.react-calendar__tile--active abbr {
+  color: white !important;
+}
+
+/* Jour hors mois */
+.react-calendar__month-view__days__day--neighboringMonth {
+  opacity: 0.5;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth abbr {
+  color: var(--gray-400);
+}
+
+/* Conteneur pour la liste des "chips" de tâches */
+.calendarTileTaskList {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 100%;
+  margin-top: 4px;
+  padding: 0 2px;
+  overflow: hidden;
+}
+
+/* Style pour une "chip" de tâche */
+.calendarTileTaskChip {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  /* 12px */
+  font-weight: 500;
+  padding: 2px 4px;
+  border-radius: 4px;
+  background-color: var(--gray-100);
+  border-left-width: 3px;
+  border-left-style: solid;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: default;
+}
+
+.calendarTileTaskChip .chipText {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--gray-700);
+}
+
+/* Couleurs des bordures de priorité */
+.calendarTileTaskChip.priorityBorder_tres_urgent {
+  border-left-color: var(--danger-color);
+  color: var(--danger-dark);
+}
+
+.calendarTileTaskChip.priorityBorder_urgent {
+  border-left-color: var(--warning-color);
+  color: var(--warning-dark);
+}
+
+.calendarTileTaskChip.priorityBorder_normal {
+  border-left-color: var(--primary-color);
+  color: var(--gray-600);
+}
+
+.calendarTileTaskChip.priorityBorder_faible {
+  border-left-color: var(--success-color);
+  color: var(--gray-600);
+}
+
+/* Appliquer la couleur à l'icône aussi */
+.priorityBorder_tres_urgent svg,
+.priorityBorder_urgent svg {
+  color: inherit;
+}
+
+
+/* Style pour le " + X autre(s) " */
+.calendarTileTaskMore {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--gray-500);
+  padding: 2px 4px;
+  text-align: center;
+}
+
+/* -- Amélioration de la lisibilité pour le jour sélectionné -- */
+.react-calendar__tile--active .calendarTileTaskChip {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-left-color: #fff;
+}
+
+.react-calendar__tile--active .calendarTileTaskChip .chipText {
+  color: #fff;
+}
+
+.react-calendar__tile--active .calendarTileTaskMore {
+  color: #fff;
+}
+
+.react-calendar__tile--active .calendarTileTaskChip svg {
+  color: #fff;
+}
+
+/* Liste des items sous le calendrier */
+.calendarItemsList {
+  margin-top: 0;
+  /* Géré par le gap du container */
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--border-radius-xl);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.calendarItemsList h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0 0 1.5rem 0;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.calendarItemsList .reclamationList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  /* Réinitialise les styles de la liste principale */
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: none;
+  border: none;
+}
+
+/* Ré-applique les styles d'item */
+.calendarItemsList .reclamationItemWrapper {
+  background: white;
+  border: 1px solid var(--gray-200);
+}
+
+.calendarItemsList .reclamationItemWrapper:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-color);
+}
+
+
+/* --- 12. NOUVEAU : Styles pour la Légende (Inspiration EmployeeTaskManager) --- */
+.calendarLegend {
+  width: 100%;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-lg);
+}
+
+.calendarLegendTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0 0 1rem 0;
+}
+
+.legendItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--gray-700);
+  font-weight: 500;
+}
+
+.legendColorBox {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+}
+
+/* Couleurs de la légende (correspondant aux priorités) */
+.legendColorBox.priority_tres_urgent {
+  background-color: var(--danger-color);
+}
+
+.legendColorBox.priority_urgent {
+  background-color: var(--warning-color);
+}
+
+.legendColorBox.priority_normal {
+  background-color: var(--primary-color);
+}
+
+.legendColorBox.priority_faible {
+  background-color: var(--success-color);
+}
+
+
+
+
+
+
+/* ==================================================================== */
+/* --- 11. NOUVEAU : Styles pour la Vue Calendrier (Version finale) --- */
+/* ==================================================================== */
+
+.calendarViewContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  /* padding-top: 1rem; (Pas nécessaire, le gap gère) */
+}
+
+.calendarWrapper {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--border-radius-xl);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Conteneur principal de la liste pour gérer l'état vide */
+.reclamationListContainer {
+  width: 100%;
+}
+
+/* Personnalisation de React-Calendar */
+.react-calendar {
+  width: 100% !important;
+  border: none;
+  font-family: 'Inter', sans-serif;
+}
+
+.react-calendar__navigation button {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--gray-800);
+}
+
+.react-calendar__navigation button:hover,
+.react-calendar__navigation button:focus {
+  background-color: var(--gray-100);
+}
+
+.react-calendar__navigation button:disabled {
+  background-color: transparent;
+  color: var(--gray-300);
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  text-align: center;
+  padding: 0.5em;
+  font-weight: 600;
+  color: var(--gray-500);
+  text-decoration: none;
+}
+
+.react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none;
+}
+
+.react-calendar__tile {
+  padding: 0.5rem;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  position: relative;
+  border: none;
+}
+
+.react-calendar__tile abbr {
+  padding: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background-color: var(--gray-100);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Jour actuel */
+.react-calendar__tile--now {
+  background-color: var(--gray-50);
+  font-weight: 600;
+}
+
+.react-calendar__tile--now abbr {
+  color: var(--primary-color);
+  font-weight: 800;
+}
+
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+  background-color: var(--gray-100);
+}
+
+/* Jour sélectionné */
+.react-calendar__tile--active {
+  background: var(--primary-gradient) !important;
+  color: white !important;
+  font-weight: 600;
+  box-shadow: var(--shadow-md);
+}
+
+.react-calendar__tile--active abbr {
+  color: white !important;
+}
+
+/* Jour hors mois */
+.react-calendar__month-view__days__day--neighboringMonth {
+  opacity: 0.5;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth abbr {
+  color: var(--gray-400);
+}
+
+/* Conteneur pour la liste des "chips" de tâches */
+.calendarTileTaskList {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 100%;
+  margin-top: 4px;
+  padding: 0 2px;
+  overflow: hidden;
+}
+/* --- REMPLACEZ VOS ANCIENS STYLES DE CHIP PAR CE BLOC --- */
+
+/* Style de base pour une "chip" de tâche */
+.calendarTileTaskChip {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem; /* 12px */
+  font-weight: 500;
+  padding: 2px 4px;
+  border-radius: 4px;
+  border-left-width: 4px; /* Bordure plus épaisse pour la priorité */
+  border-left-style: solid;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: default;
+  transition: var(--transition);
+}
+
+.calendarTileTaskChip .chipText {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* --- NOUVEAU : Couleurs de BORDURE par PRIORITÉ --- */
+.chip-priority-tres_urgent { border-left-color: var(--danger-color); }
+.chip-priority-urgent { border-left-color: var(--warning-color); }
+.chip-priority-normal { border-left-color: var(--primary-color); }
+.chip-priority-faible { border-left-color: var(--success-color); }
+
+/* --- NOUVEAU : Couleurs de FOND/TEXTE par STATUT --- */
+
+/* En attente (Jaune/Orange) */
+.chip-status-pending,
+.chip-status-enattente {
+  background-color: #fffbeb;
+  color: #b45309;
+}
+
+/* En cours (Bleu) */
+.chip-status-inprogress,
+.chip-status-encours,
+.chip-status-assigne {
+  background-color: #eef2ff;
+  color: #3730a3;
+}
+
+/* En pause (Violet) */
+.chip-status-paused {
+  background-color: #f3e8ff;
+  color: #7e22ce;
+}
+
+/* Résolu (Vert) */
+.chip-status-completed,
+.chip-status-resolu,
+.chip-status-cloture {
+  background-color: #f0fdf4;
+  color: #15803d;
+  opacity: 0.7;
+  text-decoration: line-through;
+}
+
+/* Style pour le " + X autre(s) " (inchangé) */
+.calendarTileTaskMore {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--gray-500);
+  padding: 2px 4px;
+  text-align: center;
+}
+
+/* -- Amélioration de la lisibilité pour le jour sélectionné -- */
+.react-calendar__tile--active .calendarTileTaskChip {
+  /* Le fond est déjà géré par le statut, nous ajustons juste le texte */
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.3); /* Superposition sombre */
+  border-left-color: #ffffff; /* Bordure blanche unie */
+}
+.react-calendar__tile--active .calendarTileTaskMore {
+  color: #fff;
+}
+.react-calendar__tile--active .calendarTileTaskChip svg {
+  color: #fff;
+}
+/* Groupe de filtres de date */
+.dateFilterGroup {
+  display: flex;
+  gap: 0.5rem;
+  background: white;
+  padding: 0.25rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.dateFilterButton {
+  padding: 0.625rem 1.25rem;
+  border: none;
+  background: transparent;
+  color: #64748b;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.dateFilterButton:hover {
+  background: #f1f5f9;
+  color: #334155;
+}
+
+.dateFilterButtonActive {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+/* Sélecteur de plage de dates personnalisée */
+.customDateRange {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: white;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.dateInput {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: #334155;
+  background: #f8fafc;
+  transition: all 0.2s ease;
+  min-width: 150px;
+}
+
+.dateInput:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.dateSeparator {
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* Ajustement de la barre d'outils pour accommoder les nouveaux filtres */
+.searchFiltersToolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .dateFilterGroup {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .customDateRange {
+    width: 100%;
+  }
+  
+  .dateInput {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .dateFilterButton {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+  
+  .customDateRange {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .dateInput {
+    width: 100%;
+  }
+  
+  .dateSeparator {
+    display: none;
+  }
+}
+/* ============================================
+   CALENDRIER - Chips de tâches (V2 Amélioré)
+   ============================================ */
+
+/* Container de la liste des tâches dans une tuile */
+.calendarTileTaskList {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 4px;
+  padding: 2px;
+  max-height: 80px;
+  overflow: hidden;
+}
+
+/* Chip de tâche (bordure = priorité, fond = statut) */
+.calendarTileTaskChip {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  border-left: 3px solid;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.calendarTileTaskChip:hover {
+  transform: translateX(2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Texte tronqué */
+.chipText {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+/* === COULEURS PAR PRIORITÉ (Bordure gauche) === */
+.chip_priority_tres_urgent {
+  border-left-color: #DC2626; /* Rouge vif */
+}
+
+.chip_priority_urgent {
+  border-left-color: #F59E0B; /* Orange */
+}
+
+.chip_priority_normal {
+  border-left-color: #3B82F6; /* Bleu */
+}
+
+.chip_priority_faible {
+  border-left-color: #10B981; /* Vert */
+}
+
+/* === COULEURS PAR STATUT (Fond et texte) === */
+
+/* En attente - Gris */
+.chip_status_pending,
+.chip_status_enattente {
+  background-color: #F3F4F6;
+  color: #6B7280;
+}
+
+/* En cours - Bleu */
+.chip_status_inprogress,
+.chip_status_encours,
+.chip_status_assigné {
+  background-color: #DBEAFE;
+  color: #1D4ED8;
+}
+
+/* En pause - Orange */
+.chip_status_paused {
+  background-color: #FEF3C7;
+  color: #D97706;
+}
+
+/* Résolue/Complétée - Vert */
+.chip_status_completed,
+.chip_status_résolu,
+.chip_status_clôturé {
+  background-color: #D1FAE5;
+  color: #059669;
+}
+
+/* Indicateur "X autre(s)" */
+.calendarTileTaskMore {
+  font-size: 0.65rem;
+  color: #6B7280;
+  padding: 2px 6px;
+  text-align: center;
+  font-weight: 600;
+  background-color: #F9FAFB;
+  border-radius: 3px;
+  margin-top: 2px;
+}
+
+/* ============================================
+   LÉGENDE DU CALENDRIER
+   ============================================ */
+
+.calendarLegend {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.calendarLegendTitle {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legendItems {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.75rem;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.legendItem:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.legendColorBox {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+}
+
+/* Couleurs de priorité pour la légende */
+.priority_tres_urgent {
+  background-color: #DC2626;
+}
+
+.priority_urgent {
+  background-color: #F59E0B;
+}
+
+.priority_normal {
+  background-color: #3B82F6;
+}
+
+.priority_faible {
+  background-color: #10B981;
+}
+
+/* ============================================
+   AMÉLIORATION DU CALENDRIER react-calendar
+   ============================================ */
+
+.calendarWrapper {
+  margin-bottom: 2rem;
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Personnalisation des tuiles du calendrier */
+.calendarWrapper :global(.react-calendar__tile) {
+  min-height: 100px;
+  padding: 0.5rem;
+  position: relative;
+  border: 1px solid #E5E7EB;
+}
+
+.calendarWrapper :global(.react-calendar__tile:hover) {
+  background-color: #F9FAFB;
+}
+
+.calendarWrapper :global(.react-calendar__tile--active) {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.calendarWrapper :global(.react-calendar__tile--active:hover) {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* Date du jour */
+.calendarWrapper :global(.react-calendar__tile--now) {
+  background-color: #FEF3C7;
+  font-weight: 700;
+}
+
+/* Liste des réclamations sous le calendrier */
+.calendarItemsList {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.calendarItemsList > h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #E5E7EB;
+}
+.modalOverlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.pauseModal {
+  background: white;
+  width: 90%;
+  max-width: 450px;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-xl);
+}
+
+.pauseInput {
+  width: 100%;
+  min-height: 100px;
+  padding: 1rem;
+  border: 2px solid var(--gray-200);
+  border-radius: 12px;
+  margin-top: 1rem;
+  font-family: inherit;
+  resize: none;
+}

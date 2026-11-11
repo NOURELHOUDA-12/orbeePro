@@ -1,0 +1,349 @@
+.page {
+  padding: 1.5rem;
+  background: #f5f5f3;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, sans-serif;
+  box-sizing: border-box;
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.headerText h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a1a18;
+  margin: 0 0 0.25rem;
+}
+
+.headerText p {
+  font-size: 0.8125rem;
+  color: #888780;
+  margin: 0;
+}
+
+.navButtons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btnReclam,
+.btnTaches {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid;
+  transition: background 0.15s, transform 0.1s;
+  text-decoration: none;
+}
+
+.btnReclam:active,
+.btnTaches:active {
+  transform: scale(0.98);
+}
+
+.btnReclam {
+  background: #FCEBEB;
+  color: #A32D2D;
+  border-color: #F7C1C1;
+}
+
+.btnReclam:hover {
+  background: #F7C1C1;
+}
+
+.btnTaches {
+  background: #E6F1FB;
+  color: #185FA5;
+  border-color: #B5D4F4;
+}
+
+.btnTaches:hover {
+  background: #B5D4F4;
+}
+
+.btnIcon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* ── KPI Grid ── */
+.kpiGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .kpiGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .kpiGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.kpiCard {
+  background: #fff;
+  border-radius: 0.75rem;
+  border: 0.5px solid #e5e4de;
+  padding: 1rem 1.125rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.kpiLabel {
+  font-size: 0.6875rem;
+  color: #888780;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.kpiValue {
+  font-size: 1.875rem;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.kpiSub {
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+/* ── Charts grid ── */
+.chartsRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .chartsRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chartCard {
+  background: #fff;
+  border-radius: 0.75rem;
+  border: 0.5px solid #e5e4de;
+  padding: 1rem 1.25rem;
+}
+
+.chartTitle {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #1a1a18;
+  margin: 0 0 0.25rem;
+}
+
+.chartSub {
+  font-size: 0.75rem;
+  color: #888780;
+  margin: 0 0 0.75rem;
+}
+
+/* ── Legend ── */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  color: #5f5e5a;
+}
+
+.legendDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* ── Table card ── */
+.tableCard {
+  background: #fff;
+  border-radius: 0.75rem;
+  border: 0.5px solid #e5e4de;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.tableHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.875rem;
+}
+
+.tableHeaderText {}
+
+.viewAllBtn {
+  font-size: 0.75rem;
+  color: #185FA5;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.viewAllBtn:hover {
+  color: #0C447C;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+
+.table th {
+  text-align: left;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: #888780;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0 1rem 0.625rem 0;
+  border-bottom: 0.5px solid #e5e4de;
+}
+
+.table td {
+  padding: 0.625rem 1rem 0.625rem 0;
+  border-bottom: 0.5px solid #f1efe8;
+  color: #2c2c2a;
+  vertical-align: middle;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.tableRow {
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.tableRow:hover {
+  background: #f5f5f3;
+}
+
+.idCell {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #888780;
+}
+
+.truncate {
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+}
+
+/* ── Badges ── */
+.badge {
+  font-size: 0.6875rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 99px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.badgeCritique {
+  background: #FCEBEB;
+  color: #791F1F;
+}
+
+.badgeHaute {
+  background: #FAEEDA;
+  color: #633806;
+}
+
+.badgeMoyenne {
+  background: #E6F1FB;
+  color: #0C447C;
+}
+
+.badgeBasse {
+  background: #EAF3DE;
+  color: #27500A;
+}
+
+.badgeDefault {
+  background: #F1EFE8;
+  color: #444441;
+}
+
+/* ── States ── */
+.stateBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 16rem;
+  font-size: 0.875rem;
+}
+
+.stateLoading {
+  color: #888780;
+}
+
+.stateError {
+  color: #A32D2D;
+}
+
+.empty {
+  text-align: center;
+  padding: 2rem 0;
+  color: #888780;
+  font-size: 0.875rem;
+}
+
+/* ── Custom Tooltip ── */
+.tooltip {
+  background: #fff;
+  border: 0.5px solid #e5e4de;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.tooltipLabel {
+  font-weight: 500;
+  color: #2c2c2a;
+  margin: 0 0 0.25rem;
+}
+
+.tooltipRow {
+  margin: 0.1rem 0;
+}

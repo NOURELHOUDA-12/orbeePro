@@ -1,0 +1,39 @@
+/* 1. Variables de design (Design Tokens) */
+:root {
+  --primary-color: #F59E0B; /* Ton orange OrbeePro */
+  --bg-gradient: linear-gradient(135deg, #FBBF24 0%, #cb9b23 100%);
+  --sidebar-bg: #1A1A1A;
+  --text-main: #1A1A1A;
+  --text-muted: #6B7280;
+  --font-main: 'Inter', sans-serif;
+  --border-color: #E5E7EB;
+}
+
+/* 2. Reset CSS pour que l'app soit identique partout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--bg-gradient);
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 3. Classes utilitaires globales */
+.btn-primary {
+  background: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}

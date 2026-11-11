@@ -1,0 +1,358 @@
+.employe-taches-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1F2937;
+    margin: 0;
+}
+
+.page-subtitle {
+    color: #6B7280;
+    margin: 5px 0 0 0;
+}
+
+.date-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #F9FAFB;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid #E5E7EB;
+}
+
+.date-icon {
+    color: #6B7280;
+}
+
+.date-input {
+    border: none;
+    background: none;
+    font-size: 1rem;
+    color: #1F2937;
+    outline: none;
+}
+
+/* Statistiques */
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.stat-icon.total { background: #E0E7FF; color: #3730A3; }
+.stat-icon.en-cours { background: #D1FAE5; color: #065F46; }
+.stat-icon.terminee { background: #D1FAE5; color: #065F46; }
+.stat-icon.temps { background: #FEF3C7; color: #92400E; }
+
+.stat-info {
+    flex: 1;
+}
+
+.stat-number {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1F2937;
+    line-height: 1;
+}
+
+.stat-label {
+    color: #6B7280;
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+
+/* Sections */
+.taches-section {
+    margin-bottom: 30px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1F2937;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #F3F4F6;
+}
+
+/* Grille des tâches */
+.taches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 16px;
+}
+
+.tache-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-left: 4px solid #E5E7EB;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tache-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.tache-card.en-cours { border-left-color: #10B981; }
+.tache-card.en-pause { border-left-color: #F59E0B; }
+.tache-card.planifiee { border-left-color: #6B7280; }
+.tache-card.terminee { border-left-color: #10B981; opacity: 0.8; }
+
+/* Header tâche */
+.tache-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.tache-type {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.tache-statut {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.tache-statut.planifiee { background: #F3F4F6; color: #6B7280; }
+.tache-statut.en-cours { background: #D1FAE5; color: #065F46; }
+.tache-statut.en-pause { background: #FEF3C7; color: #92400E; }
+.tache-statut.terminee { background: #D1FAE5; color: #065F46; }
+
+/* Contenu tâche */
+.tache-content {
+    margin-bottom: 16px;
+}
+
+.tache-espace {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1F2937;
+    margin: 0 0 4px 0;
+}
+
+.tache-lieu {
+    color: #6B7280;
+    font-size: 0.9rem;
+    margin: 0 0 8px 0;
+}
+
+.tache-notes {
+    color: #4B5563;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 8px 0 0 0;
+    padding: 8px;
+    background: #F9FAFB;
+    border-radius: 6px;
+}
+
+.duree-estimee {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #6B7280;
+    font-size: 0.8rem;
+    margin-top: 8px;
+}
+
+/* Timer */
+.tache-timer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background: #F9FAFB;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.timer-display {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.timer-icon {
+    color: #6B7280;
+}
+
+.timer-value {
+    font-family: 'Courier New', monospace;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1F2937;
+}
+
+.timer-actions {
+    display: flex;
+    gap: 6px;
+}
+
+/* Actions */
+.tache-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-start, .btn-resume {
+    background: #10B981;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+    transition: background 0.2s;
+    flex: 1;
+    justify-content: center;
+}
+
+.btn-start:hover, .btn-resume:hover {
+    background: #059669;
+}
+
+.btn-pause {
+    background: #F59E0B;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-pause:hover {
+    background: #D97706;
+}
+
+.btn-complete {
+    background: #EF4444;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-complete:hover {
+    background: #DC2626;
+}
+
+/* Footer tâche terminée */
+.tache-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #6B7280;
+}
+
+.temps-final {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 500;
+}
+
+.date-fin {
+    font-style: italic;
+}
+
+/* État vide */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #6B7280;
+}
+
+.empty-state h3 {
+    margin: 16px 0 8px 0;
+    color: #374151;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .date-control {
+        justify-content: center;
+    }
+    
+    .stats-section {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .taches-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tache-timer {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .timer-actions {
+        width: 100%;
+        justify-content: center;
+    }
+}
